@@ -6,7 +6,9 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2">School *</label>
                 <select wire:model="school_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 @error('school_id') border-red-500 @enderror">
                     <option value="">Select School</option>
-                    @foreach($schools as $school)<option value="{{ $school->id }}">{{ $school->name }}</option>@endforeach
+                    @foreach($schools as $school)
+                        <option value="{{ $school->id }}">{{ $school->name }}</option>
+                    @endforeach
                 </select>
                 @error('school_id') <p class="text-red-500 text-xs italic">{{ $message }}</p> @enderror
             </div>
