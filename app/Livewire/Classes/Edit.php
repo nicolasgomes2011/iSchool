@@ -10,10 +10,15 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $classId;
+
     public $school_id;
+
     public $teacher_id;
+
     public $name;
+
     public $grade_level;
+
     public $description;
 
     protected $rules = [
@@ -49,6 +54,7 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Class updated successfully.');
+
         return redirect()->route('classes.index');
     }
 
@@ -56,6 +62,7 @@ class Edit extends Component
     {
         $schools = School::all();
         $teachers = Teacher::all();
-        return view('livewire.classes.edit', compact('schools', 'teachers'));
+
+        return view('livewire.classes.edit', compact('schools', 'teachers'))->layout('layouts.app');
     }
 }

@@ -10,9 +10,13 @@ use Livewire\Component;
 class Create extends Component
 {
     public $school_id;
+
     public $teacher_id;
+
     public $name;
+
     public $grade_level;
+
     public $description;
 
     protected $rules = [
@@ -36,6 +40,7 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Class created successfully.');
+
         return redirect()->route('classes.index');
     }
 
@@ -43,6 +48,7 @@ class Create extends Component
     {
         $schools = School::all();
         $teachers = Teacher::all();
-        return view('livewire.classes.create', compact('schools', 'teachers'));
+
+        return view('livewire.classes.create', compact('schools', 'teachers'))->layout('layouts.app');
     }
 }

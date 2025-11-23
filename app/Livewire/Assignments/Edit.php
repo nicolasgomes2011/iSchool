@@ -9,9 +9,13 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $assignmentId;
+
     public $class_id;
+
     public $title;
+
     public $description;
+
     public $due_date;
 
     protected $rules = [
@@ -44,12 +48,14 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Assignment updated successfully.');
+
         return redirect()->route('assignments.index');
     }
 
     public function render()
     {
         $classes = Classes::all();
-        return view('livewire.assignments.edit', compact('classes'));
+
+        return view('livewire.assignments.edit', compact('classes'))->layout('layouts.app');
     }
 }

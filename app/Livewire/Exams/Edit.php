@@ -9,9 +9,13 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $examId;
+
     public $class_id;
+
     public $title;
+
     public $description;
+
     public $exam_date;
 
     protected $rules = [
@@ -44,12 +48,14 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Exam updated successfully.');
+
         return redirect()->route('exams.index');
     }
 
     public function render()
     {
         $classes = Classes::all();
-        return view('livewire.exams.edit', compact('classes'));
+
+        return view('livewire.exams.edit', compact('classes'))->layout('layouts.app');
     }
 }

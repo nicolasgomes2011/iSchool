@@ -9,8 +9,11 @@ use Livewire\Component;
 class Create extends Component
 {
     public $class_id;
+
     public $title;
+
     public $description;
+
     public $body;
 
     protected $rules = [
@@ -32,12 +35,14 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Content created successfully.');
+
         return redirect()->route('contents.index');
     }
 
     public function render()
     {
         $classes = Classes::all();
-        return view('livewire.contents.create', compact('classes'));
+
+        return view('livewire.contents.create', compact('classes'))->layout('layouts.app');
     }
 }

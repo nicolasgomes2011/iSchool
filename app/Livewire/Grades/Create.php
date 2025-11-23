@@ -10,8 +10,11 @@ use Livewire\Component;
 class Create extends Component
 {
     public $student_id;
+
     public $class_id;
+
     public $grade;
+
     public $notes;
 
     protected $rules = [
@@ -33,6 +36,7 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Grade created successfully.');
+
         return redirect()->route('grades.index');
     }
 
@@ -40,6 +44,7 @@ class Create extends Component
     {
         $students = Student::all();
         $classes = Classes::all();
-        return view('livewire.grades.create', compact('students', 'classes'));
+
+        return view('livewire.grades.create', compact('students', 'classes'))->layout('layouts.app');
     }
 }

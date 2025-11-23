@@ -9,8 +9,11 @@ use Livewire\Component;
 class Create extends Component
 {
     public $class_id;
+
     public $title;
+
     public $description;
+
     public $due_date;
 
     protected $rules = [
@@ -32,12 +35,14 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Assignment created successfully.');
+
         return redirect()->route('assignments.index');
     }
 
     public function render()
     {
         $classes = Classes::all();
-        return view('livewire.assignments.create', compact('classes'));
+
+        return view('livewire.assignments.create', compact('classes'))->layout('layouts.app');
     }
 }

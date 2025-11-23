@@ -9,9 +9,13 @@ use Livewire\Component;
 class Create extends Component
 {
     public $school_id;
+
     public $name;
+
     public $email;
+
     public $phone;
+
     public $subject;
 
     protected $rules = [
@@ -35,12 +39,14 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'Teacher created successfully.');
+
         return redirect()->route('teachers.index');
     }
 
     public function render()
     {
         $schools = School::all();
-        return view('livewire.teachers.create', compact('schools'));
+
+        return view('livewire.teachers.create', compact('schools'))->layout('layouts.app');
     }
 }

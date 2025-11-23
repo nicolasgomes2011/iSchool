@@ -29,6 +29,7 @@ class Index extends Component
     public function render()
     {
         $grades = Grade::with(['student', 'class'])->paginate(10);
-        return view('livewire.grades.index', compact('grades'));
+
+        return view('livewire.grades.index', compact('grades'))->layout('layouts.app');
     }
 }

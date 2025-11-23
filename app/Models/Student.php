@@ -28,7 +28,7 @@ class Student extends Model
 
     public function classes(): BelongsToMany
     {
-        return $this->belongsToMany(Classes::class, 'class_student');
+        return $this->belongsToMany(Classes::class, 'class_student', 'student_id', 'class_id');
     }
 
     public function grades(): HasMany

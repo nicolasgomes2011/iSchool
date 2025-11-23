@@ -9,10 +9,15 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $teacherId;
+
     public $school_id;
+
     public $name;
+
     public $email;
+
     public $phone;
+
     public $subject;
 
     protected $rules = [
@@ -36,7 +41,7 @@ class Edit extends Component
 
     public function update()
     {
-        $this->rules['email'] = 'required|email|unique:teachers,email,' . $this->teacherId;
+        $this->rules['email'] = 'required|email|unique:teachers,email,'.$this->teacherId;
         $this->validate();
 
         $teacher = Teacher::find($this->teacherId);
@@ -49,12 +54,14 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Teacher updated successfully.');
+
         return redirect()->route('teachers.index');
     }
 
     public function render()
     {
         $schools = School::all();
-        return view('livewire.teachers.edit', compact('schools'));
+
+        return view('livewire.teachers.edit', compact('schools'))->layout('layouts.app');
     }
 }

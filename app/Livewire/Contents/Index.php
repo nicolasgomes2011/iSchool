@@ -11,6 +11,7 @@ class Index extends Component
     use WithPagination;
 
     public $search = '';
+
     public $deleteId;
 
     public function updatingSearch()
@@ -35,9 +36,9 @@ class Index extends Component
     public function render()
     {
         $contents = Content::with('class')
-            ->where('title', 'like', '%' . $this->search . '%')
+            ->where('title', 'like', '%'.$this->search.'%')
             ->paginate(10);
 
-        return view('livewire.contents.index', compact('contents'));
+        return view('livewire.contents.index', compact('contents'))->layout('layouts.app');
     }
 }

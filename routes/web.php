@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::get('/schools', \App\Livewire\Schools\Index::class)->name('schools.index');
 Route::get('/schools/create', \App\Livewire\Schools\Create::class)->name('schools.create');
 Route::get('/schools/{id}/edit', \App\Livewire\Schools\Edit::class)->name('schools.edit');
+Route::get('/schools/{id}/settings', \App\Livewire\Schools\Settings::class)->name('schools.settings');
 
 // Teachers
 Route::get('/teachers', \App\Livewire\Teachers\Index::class)->name('teachers.index');

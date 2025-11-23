@@ -28,6 +28,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $school->phone }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <a href="{{ route('schools.edit', $school->id) }}" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
+                            <a href="{{ route('schools.settings', $school->id) }}" class="text-green-600 hover:text-green-900 mr-3">Settings</a>
                             <button wire:click="confirmDelete({{ $school->id }})" x-data @click="$dispatch('open-modal', 'confirm-delete')" class="text-red-600 hover:text-red-900">Delete</button>
                         </td>
                     </tr>

@@ -8,9 +8,13 @@ use Livewire\Component;
 class Create extends Component
 {
     public $name;
+
     public $address;
+
     public $phone;
+
     public $email;
+
     public $settings;
 
     protected $rules = [
@@ -34,11 +38,12 @@ class Create extends Component
         ]);
 
         session()->flash('message', 'School created successfully.');
+
         return redirect()->route('schools.index');
     }
 
     public function render()
     {
-        return view('livewire.schools.create');
+        return view('livewire.schools.create')->layout('layouts.app');
     }
 }

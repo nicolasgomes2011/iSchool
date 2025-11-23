@@ -10,9 +10,13 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $gradeId;
+
     public $student_id;
+
     public $class_id;
+
     public $grade;
+
     public $notes;
 
     protected $rules = [
@@ -45,6 +49,7 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Grade updated successfully.');
+
         return redirect()->route('grades.index');
     }
 
@@ -52,6 +57,7 @@ class Edit extends Component
     {
         $students = Student::all();
         $classes = Classes::all();
-        return view('livewire.grades.edit', compact('students', 'classes'));
+
+        return view('livewire.grades.edit', compact('students', 'classes'))->layout('layouts.app');
     }
 }

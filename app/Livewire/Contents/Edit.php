@@ -9,9 +9,13 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $contentId;
+
     public $class_id;
+
     public $title;
+
     public $description;
+
     public $body;
 
     protected $rules = [
@@ -44,12 +48,14 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'Content updated successfully.');
+
         return redirect()->route('contents.index');
     }
 
     public function render()
     {
         $classes = Classes::all();
-        return view('livewire.contents.edit', compact('classes'));
+
+        return view('livewire.contents.edit', compact('classes'))->layout('layouts.app');
     }
 }

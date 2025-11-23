@@ -8,10 +8,15 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $schoolId;
+
     public $name;
+
     public $address;
+
     public $phone;
+
     public $email;
+
     public $settings;
 
     protected $rules = [
@@ -47,11 +52,12 @@ class Edit extends Component
         ]);
 
         session()->flash('message', 'School updated successfully.');
+
         return redirect()->route('schools.index');
     }
 
     public function render()
     {
-        return view('livewire.schools.edit');
+        return view('livewire.schools.edit')->layout('layouts.app');
     }
 }
